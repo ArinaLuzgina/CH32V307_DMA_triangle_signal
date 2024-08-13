@@ -1,0 +1,63 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "CMake: configure",
+			"command": "cmake -GNinja -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -B build",
+			"problemMatcher": [],
+			"detail": "CMake template configure task"
+		},
+		{
+			"type":  "shell",
+			"label": "CMake: build",
+			"command": "cmake --build build",
+			"group": "build",
+			"problemMatcher": [],
+			"detail": "CMake template build task"
+		},
+		{
+			"type":  "shell",
+			"label": "CMake: clean",
+			"command": "Remove-Item build -recurse",
+			"problemMatcher": [],
+			"detail": "CMake template clean task"
+		},
+		{
+			"label": "flash",
+			"type": "shell",
+			"command": "openocd -f \"C:/MounRiver/MounRiver_Studio/toolchain/OpenOCD/bin/wch-riscv.cfg\" -c init -c halt  -c 'program ./build/${workspaceFolderBasename}.hex verify'  -c reset -c wlink_reset_resume -c exit  ",
+			"problemMatcher": []
+		},
+		{
+			"label": "allIn",
+			"type": "shell",
+			"command": "Remove-Item build -recurse; cmake -GNinja -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -B build; cmake --build build",
+			"problemMatcher": [],
+			"detail": "CMake template clean, configure, build task"
+		},
+		{
+			"label": "buildFlash",
+			"type": "shell",
+			"command": "cmake --build build; openocd -f \"C:/MounRiver/MounRiver_Studio/toolchain/OpenOCD/bin/wch-riscv.cfg\" -c init -c halt  -c 'program ./build/${workspaceFolderBasename}.hex verify'  -c reset -c wlink_reset_resume -c exit",
+			"problemMatcher": [],
+			"detail": "CMake template build and flash task"
+
+		},
+		{
+			"label": "openocd",
+			"type": "shell",
+			"command": "openocd -f \"C:/MounRiver/MounRiver_Studio/toolchain/OpenOCD/bin/wch-riscv.cfg\" -f \"gdb-start.cfg\"",
+			"problemMatcher": []
+		},
+		{
+			"label": "buildFlashOpenocd",
+			"type": "shell",
+			"command": "cmake --build build; openocd -f \"C:/MounRiver/MounRiver_Studio/toolchain/OpenOCD/bin/wch-riscv.cfg\" -c init -c halt  -c 'program ./build/${workspaceFolderBasename}.hex verify'  -c reset -c wlink_reset_resume -c exit; openocd -f \"C:/MounRiver/MounRiver_Studio/toolchain/OpenOCD/bin/wch-riscv.cfg\" -f \"gdb-start.cfg\"",
+			"problemMatcher": [],
+			"detail": "CMake template build, flash, and openocd task"
+		}
+
+
+	]
+}

@@ -1,0 +1,3 @@
+C:/MounRiver/projects/SimulateCDC_DAC/build/CMakeFiles/SimulateCDC_Dac.elf.dir
+C:/MounRiver/projects/SimulateCDC_DAC/build/CMakeFiles/edit_cache.dir
+C:/MounRiver/projects/SimulateCDC_DAC/build/CMakeFiles/rebuild_cache.dir

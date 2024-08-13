@@ -1,0 +1,36 @@
+{
+  "version": "0.2.0",
+  "svdPath":"C:/MounRiver/MounRiver_Studio/template/wizard/WCH/RISC-V/CH32V307/NoneOS/CH32V307xx.svd",
+  "configurations": [
+    
+
+      {
+          "type": "cmake",
+          "request": "launch",
+          "name": "CMake script debugging",
+          "cmakeDebugType": "script",
+          "scriptPath": "../${workspaceFolder}/User/main.c"
+      },
+      {
+          "type": "cmake",
+          "request": "launch",
+          "name": "Debug externally launched CMake process",
+          "cmakeDebugType": "external",
+          "pipeName": "<insert-pipe-name>"
+      },
+      {
+        "type": "gdb",
+        "request": "attach",
+        "name": "Attach to gdbserver",
+        "executable": "${workspaceRoot}/build/SimulateCDC_Dac.elf",
+        "target": ":3333",
+        "remote": true,
+        "cwd": "${workspaceRoot}", 
+        "gdbpath": "C:/MounRiver/MounRiver_Studio/toolchain/RISC-V Embedded GCC12/bin/riscv-none-elf-gdb.exe",
+        "autorun": [
+            ]
+      }
+  ]
+}
+
+
