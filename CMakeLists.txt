@@ -62,7 +62,6 @@ file(GLOB_RECURSE SOURCES
                 "Core/core_riscv.c" 
                 "Debug/debug.c"
                 "Peripheral/src/*.c" 
-                # "Peripheral/inc/*.h" 
                 "Startup/startup_ch32v30x_D8C.S"
                 "User/UART/*.h"
                 "User/USB_Device/*.h"
