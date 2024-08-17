@@ -250,18 +250,11 @@ int main(void)
             down_Time_period = ptr->timeDown;
             TIM_TimeBaseInitStructure.TIM_Period = up_Time_period;
             
-            u16 value = 15;
-            u16 i = 0; 
-            while(i < (Buf_Size / 2)){
-                buffer[i] = value;
-                i ++;
-                value = 15 + (u16)((u32)i * ptr->amplitude * 16 / 3300);
-
+            for(u16 i = 0; i < Buf_Size / 2; i ++){
+                buffer[i] = 15 + (u16)((u32)i * ptr->amplitude * 16 / 3300);
             }
-            while(i < Buf_Size){
-                buffer[i] = value;
-                value = buffer[Buf_Size / 2 - 1] - (u16)((u32)(i - Buf_Size / 2) * ptr->amplitude * 16 / 3300);
-                i ++;
+            for(u16 i = Buf_Size / 2; i < Buf_Size; i ++){
+                buffer[i] = buffer[Buf_Size / 2 - 1] - (u16)((u32)(i - Buf_Size / 2) * ptr->amplitude * 16 / 3300);
             }
             buffer[Buf_Size -1] = 15;
 
